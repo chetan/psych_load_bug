@@ -19,6 +19,10 @@ $ ruby -rjson `which psych_load_bug`
 testing yaml:
 {"a"=>"b"}
 
+$ ruby -ryaml `which psych_load_bug`
+testing yaml:
+{"a"=>"b"}
+
 $ gem uninstall psych_load_bug
 $ bundle exec ruby -Ilib/ bin/psych_load_bug
 testing yaml:
