@@ -15,13 +15,18 @@ Gem::Specification.new do |s|
   s.description = "test case for psych load bug"
   s.email = "chetan@pixelcop.net"
   s.executables = ["psych_load_bug"]
+  s.extra_rdoc_files = [
+    "README.md"
+  ]
   s.files = [
     "Gemfile",
     "Gemfile.lock",
+    "README.md",
     "Rakefile",
     "VERSION",
     "bin/psych_load_bug",
-    "lib/psych_load_bug.rb"
+    "lib/psych_load_bug.rb",
+    "psych_load_bug.gemspec"
   ]
   s.homepage = "http://github.com/chetan/psych_load_bug"
   s.licenses = ["MIT"]
@@ -33,13 +38,16 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<psych>, ["~> 2.0.11"])
+      s.add_runtime_dependency(%q<json>, ["~> 1.8"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
     else
       s.add_dependency(%q<psych>, ["~> 2.0.11"])
+      s.add_dependency(%q<json>, ["~> 1.8"])
       s.add_dependency(%q<jeweler>, [">= 0"])
     end
   else
     s.add_dependency(%q<psych>, ["~> 2.0.11"])
+    s.add_dependency(%q<json>, ["~> 1.8"])
     s.add_dependency(%q<jeweler>, [">= 0"])
   end
 end
