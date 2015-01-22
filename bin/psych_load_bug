@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require "psych_load_bug"
+
+puts "testing yaml:"
+p YAML.load('a: b')
