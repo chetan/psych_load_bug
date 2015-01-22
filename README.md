@@ -1,6 +1,6 @@
-## psych gem conflict with json (~> 1.8.2)
+## psych gem conflict with json on ruby 2.2.0
 
-The `psych` gem appears to conflict with the `json` gem under certain conditions, specifically when loaded via a gemspec dependency and either `yaml` or `psych` are required before `json`.
+The `psych` (~> 2.0.11) gem appears to conflict with `json` (~> 1.8.2) gem on mri 2.2.0 when loaded via a gemspec dependency and either `yaml` or `psych` are required before `json`.
 
 
 ### The problem
@@ -16,6 +16,11 @@ testing yaml:
 Runs correctly:
 ```bash
 $ ruby -rjson `which psych_load_bug`
+testing yaml:
+{"a"=>"b"}
+
+$ gem uninstall psych_load_bug
+$ bundle exec ruby -Ilib/ bin/psych_load_bug
 testing yaml:
 {"a"=>"b"}
 ```
