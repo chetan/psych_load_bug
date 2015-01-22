@@ -1,6 +1,8 @@
 ## psych gem conflict with json on ruby 2.2.0
 
-The `psych` (~> 2.0.11) gem appears to conflict with `json` (~> 1.8.2) gem on mri 2.2.0 when loaded via a gemspec dependency and either `yaml` or `psych` are required before `json`.
+The `psych` (~> 2.0.11) gem appears to conflict with `json` (~> 1.8.2) gem when loaded via a gemspec dependency and either `yaml` or `psych` are required before `json`.
+
+The problem only occurs on `ruby 2.2.0p0` but appears to be fixed on 2.2-head `ruby 2.2.0p36 (2015-01-22 revision 49375)`.
 
 
 ### The problem
@@ -45,6 +47,6 @@ $ psych_load_bug
 
 ### Solution
 
-Make sure the `json` gem is loaded first! 
+Make sure the `json` gem is loaded first! (maybe?)
 
 Other than that, I am not sure why the two are conflicing. The library load path doesn't seem to be altered by the inclusion of the json gem. Perhaps it's a Rubygems bug?
